@@ -1,0 +1,70 @@
+Experiment  No: 2
+Objective:
+1) Understand the use of Stack.
+2) Understand how to import an ADT in an application program.
+ 3) Understand the instantiation of Stack ADT in an application program.
+4) Understand how the member functions of an ADT are accessed in an application program.
+Theory:
+Postfix notation is a way of writing algebraic expressions without the use of parentheses or rules of operator precedence. The expression (A+B)(C-D) would be written as AB+CD-/in postfix notation. An expression is scanned from user in infix form; it is converted into postfix form and then evaluated without considering the parenthesis and priority of the operators.
+An arithmetic expression consists of operands and operators. For a given expression in an postfix form, stack can be used to evaluate the expression. The rule is whenever an operands comes into the string push it on to the stack and when an operator is found then last two elements from the stack are poped and computed and the result is pushed back on to the stack. One by one whole string of postfix expression is parsed and final result is obtained at an end of computation that remains in the stack.
+CODE:
+#include<stdio.h>
+#include<conio.h>
+#include<ctype.h>
+
+char stack[100];
+int top = -1;
+
+void push(char x){
+	stack[++top] = x;
+}
+
+char pop(){
+	if(top == -1){
+		return -1;
+	}
+	else{
+	return stack[top--];
+	}
+}
+
+int priority(char x){
+	if(x == '(')
+		return 0;
+	if(x == '+' || x == '-')
+		return 1;
+	if(x == '*' || x == '/')
+		return 2;
+	return 0;
+}
+
+int main(){
+	char exp[100];
+	char *e, x;
+	printf("Enter the expression: ");
+	scanf("%s", exp);
+	e = exp;
+
+	while(*e != '\0'){
+		if(isalnum(*e))
+		printf("%c", *e);
+		else if(*e == '(')
+		push(*e);
+		else if(*e == ')'){
+			while((x = pop()) != '(')
+			printf("%c", x);
+		}
+		else{
+			while(priority(stack[top]) >= priority(*e))
+				printf("%c", pop());
+			push(*e);
+		}
+		e++;
+	}
+
+	while(top != -1){
+		printf("%c", pop());
+	}
+	getch();
+	return 0;
+}\
