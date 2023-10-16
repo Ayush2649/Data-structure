@@ -1,6 +1,58 @@
 Experiment No. 8
 
-Algorithm :
+Objective:
+1) Understand how to implement a BST using a predefined BST ADT.
+2) Understand the method of counting the number of nodes of a binary tree.
+
+Theory:
+A binary tree is a finite set of elements that is either empty or partitioned into disjointsubsets.
+In other words node in a binary tree has at most two children and each child node isreferred as left or right child.
+Traversals in tree can be in one of the three ways : preorder, postorder, inorder.
+
+Preorder Traversal
+Here the following strategy is followed in sequence
+1. Visit the root node R
+2. Traverse the left subtree of R
+3. Traverse the right sub tree of R
+
+
+Algorithm: PREORDER(ROOT)
+Input : Root is a pointer to root node of binary tree
+Output : Visiting all the nodes in preorder fashion.
+Description : Linked structure of binary tree
+1. ptr=ROOT
+2. if ptr!=NULL then
+visit(ptr)
+PREORDER(LSON(ptr))\
+PREORDER(RSON(ptr))
+End if
+3. Stop
+
+Algorithm: INORDER(ROOT)
+Input : Root is a pointer to root node of binary tree
+Output : Visiting all the nodes in inorder fashion.
+Description : Linked structure of binary tree
+
+1. ptr=ROOT
+2. if ptr!=NULL then
+INORDER (LSON(ptr))
+visit(ptr)
+INORDER (RSON(ptr))
+End if
+3. Stop
+
+Algorithm: POSTORDER(ROOT)
+Input : Root is a pointer to root node of binary tree
+Output : Visiting all the nodes in postorder fashion.
+Description : Linked structure of binary tree
+
+1. ptr=ROOT
+2. if ptr!=NULL then
+PREORDER(LSON(ptr))
+PREORDER(RSON(ptr))
+visit(ptr)
+End if
+3. Stop
 
 Code : 
 // C program for different tree traversals
