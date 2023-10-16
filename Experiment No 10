@@ -4,8 +4,30 @@ ROLL NO : 26
 
 Experiment No 10 : Binary Search Mathod
 
-Code:
+Objective: 1) Understand how to implement Binary Search algorithm.
 
+Theory:
+The improvement to searching method to reduce the amount of work can be done using binary searching. 
+Binary searching is more efficient than linear searching if an array tobe searched is in sorted manner.
+Here an key item to be searched is compared with the item at middle of array.
+If they are equal search is completed. If the middle element is greater than key item searching proceeds with left sub array. Similarly, if middle element is less than key item than searching
+proceeds with right sub array and so on till the element is found.For large arrays, this method is superior to sequential searching.
+
+Algorithm : 
+FIND(arr, x, first, last)
+if (first &gt; last)then
+return -1
+End if
+mid = (first + last) / 2
+if (arr[mid] = x)
+return mid
+End if
+if (arr[mid] &lt; x)
+return find(arr, x, mid+1, last)
+End if
+return find(arr, x, first, mid-1)
+
+Code:
 #include <stdio.h>
 
 
@@ -45,3 +67,4 @@ int main(void)
 							result);
 	return 0;
 }
+OUTPUT : Element is present at index 3
