@@ -1,4 +1,36 @@
+NAME : AYUSH VIJAY SAHU
+DIV : COMPS 3
+ROLL NO : 26
+
 Experiment No 9 : Depth First Search and Breadth First Search
+
+Objective:
+1. Understand the Graph data structure and its basic operations.
+2. Understand the method of representing a graph.
+3. Understand the method of constructing the Graph ADT and defining its operations
+
+Theory:
+A graph is a collection of nodes or vertex, connected in pairs by lines referred as edges. A graph can be directed or undirected graph.
+One method of traversing through nodes is depth first search. Here we traverse fromstarting node and proceeds from top to bottom. At a moment we reach a dead end from where
+the further movement is not possible and we backtrack and then proceed according to leftright order. A stack is used to keep track of a visited node which helps in backtracking.
+
+Algorithm : 1. if gptr = NULL then
+print “Graph is empty” exit
+2. u=v
+3. OPEN.PUSH(u)
+4. while OPEN.TOP !=NULL do
+u=OPEN.POP()
+if search(VISIT,u) = FALSE then
+INSERT_END(VISIT,u)
+Ptr = gptr(u)
+While ptr.LINK != NULL do
+Vptr = ptr.LINK
+OPEN.PUSH(vptr.LABEL)
+End while
+End if
+End while
+5. Return VISIT
+6. Stop
 
 Code: 
  
@@ -44,3 +76,15 @@ void main()
             printf("BFS is not possible. Not all nodes are reachable");
     return 0;
 }
+
+OUTPUT :
+Enter the number of vertices: 2
+Enter graph data in matrix form:
+1
+2
+3
+4
+Enter the starting vertex: 5
+The node which are reachable are:
+BFS is not possible. Not all nodes are reachableBFS is not possible. Not all nodes are reachable
+--------------------------------
